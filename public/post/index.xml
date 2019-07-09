@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Mr.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jul 2019 21:14:14 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A first post using blogdown</title>
+      <link>/2019/07/09/a-first-post-using-blogdown/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/07/09/a-first-post-using-blogdown/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>First Post</title>
