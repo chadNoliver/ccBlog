@@ -1,4 +1,4 @@
-baseurl = "https://epic-hawking-a3e50b.netlify.com"
+baseurl = "/"
 languageCode = "en-us"
 title = "Mr."
 theme = "hugo-lithium"
