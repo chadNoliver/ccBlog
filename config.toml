@@ -1,10 +1,10 @@
-baseurl = "/"
+baseurl = "https://epic-hawking-a3e50b.netlify.com"
 languageCode = "en-us"
 title = "Mr."
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+ignoreFiles = ["\\.Rmd$", "\\.Rfmarkdown$", "_files$", "_cache$"]
 
 [permalinks]
     post = "/:year/:month/:day/:slug/"
