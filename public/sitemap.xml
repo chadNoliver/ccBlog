@@ -44,6 +44,11 @@
   </url>
   
   <url>
+    <loc>/2019/07/02/test-two/</loc>
+    <lastmod>2019-07-02T21:14:14-05:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/plot/</loc>
     <lastmod>2019-07-02T21:14:14-05:00</lastmod>
     <priority>0</priority>
@@ -58,10 +63,6 @@
   <url>
     <loc>/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/1/01/01/test-two/</loc>
   </url>
   
 </urlset>
