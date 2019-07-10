@@ -1,0 +1,29 @@
+---
+date: "2019-07-09 21:27:13 CDT"
+title: About
+---
+
+Actionable Figures. Other people have used the name before:
+
+```{r google_scrape}
+library(rvest)
+library(tidyverse)
+library(magrittr)
+library(RCurl)
+
+search_term <- '"actionable figures"'
+url <- URLencode(str_c("https://www.google.com/search?q=", search_term,sep=""))
+fullResults <- (read_html(x=url))
+matched <- str_match_all(fullResults, "(.*?)<a href=\"/url(.*?)\"")
+m2 <- matched[[1]]
+m3 <- as_tibble(m2)
+View(m3)
+View(m3$V1)
+xxx <- "?q="
+m4 <- m3 %>% 
+  mutate(site=gsub(xxx,"",V3))
+```
+the following sites have already used the term:
+```{r}
+print(m4$site)
+```
