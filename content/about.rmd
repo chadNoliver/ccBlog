@@ -5,7 +5,7 @@ title: About
 
 Actionable Figures. Other people have used the name before:
 
-```{r google_scrape}
+```{r, google_scrape, results='hide', warning=FALSE}
 library(rvest)
 library(tidyverse)
 library(magrittr)
@@ -27,3 +27,6 @@ the following sites have already used the term:
 ```{r}
 print(m4$site)
 ```
+#update using selenium or splash to make this cleaner
+
+
