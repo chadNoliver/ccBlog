@@ -9,12 +9,12 @@ title: About
 <pre class="r"><code>library(rvest)</code></pre>
 <pre><code>## Loading required package: xml2</code></pre>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages -------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------- tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 3.1.0       v purrr   0.3.2  
 ## v tibble  2.1.1       v dplyr   0.8.0.1
 ## v tidyr   0.8.3       v stringr 1.4.0  
 ## v readr   1.3.1       v forcats 0.4.0</code></pre>
-<pre><code>## -- Conflicts ----------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ---------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter()         masks stats::filter()
 ## x readr::guess_encoding() masks rvest::guess_encoding()
 ## x dplyr::lag()            masks stats::lag()
@@ -48,13 +48,13 @@ m4 &lt;- m3 %&gt;%
   mutate(site=gsub(xxx,&quot;&quot;,V3))</code></pre>
 <p>the following sites have already used the term:</p>
 <pre class="r"><code>print(m4$site)</code></pre>
-<pre><code>## [1] &quot;?https://www.washingtonpost.com/archive/lifestyle/1996/12/08/actionable-figures/717523e7-74ce-47a9-8546-02ae20b8bb1e/&amp;amp;sa=U&amp;amp;ved=2ahUKEwict_OHoavjAhULWa0KHQwqDkUQFjAAegQICRAB&amp;amp;usg=AOvVaw3hxdX9xmKk2r_-LvWZhHKF&quot;                   
-## [2] &quot;?https://www.wnycstudios.org/story/177199-mutant-rights&amp;amp;sa=U&amp;amp;ved=2ahUKEwict_OHoavjAhULWa0KHQwqDkUQFjAHegQICBAB&amp;amp;usg=AOvVaw2tJI3nlg9pwlOaZdm7i4Pv&quot;                                                                                 
-## [3] &quot;?https://www.pinterest.com/pin/111534528251042318/&amp;amp;sa=U&amp;amp;ved=2ahUKEwict_OHoavjAhULWa0KHQwqDkUQFjAIegQIBBAB&amp;amp;usg=AOvVaw2rz8QBBazA15UbZRSnwUhj&quot;                                                                                      
-## [4] &quot;?https://www.mastercollector.com/articles/cheesy/cheese121205.htm&amp;amp;sa=U&amp;amp;ved=2ahUKEwict_OHoavjAhULWa0KHQwqDkUQFjAJegQIAxAB&amp;amp;usg=AOvVaw0WsbrH2iY49bWi2Qa93K4z&quot;                                                                       
-## [5] &quot;?https://www.entrepreneur.com/article/239016&amp;amp;sa=U&amp;amp;ved=2ahUKEwict_OHoavjAhULWa0KHQwqDkUQFjAKegQIARAB&amp;amp;usg=AOvVaw1mdQOGTdY86uGbYoCGZ2Z1&quot;                                                                                            
-## [6] &quot;?http://www.codexmarketing.com/about&amp;amp;sa=U&amp;amp;ved=2ahUKEwict_OHoavjAhULWa0KHQwqDkUQFjALegQIAhAB&amp;amp;usg=AOvVaw0gXCcpaiXpsCJpivqksmtR&quot;                                                                                                    
-## [7] &quot;?https://accounts.google.com/ServiceLogin%3Fcontinue%3Dhttps://www.google.com/search%253Fq%253D%252522actionable%252Bfigures%252522%26hl%3Den&amp;amp;sa=U&amp;amp;ved=0ahUKEwict_OHoavjAhULWa0KHQwqDkUQxs8CCEY&amp;amp;usg=AOvVaw2t1a9XVoJOx8AFPCrIPINE&quot;</code></pre>
+<pre><code>## [1] &quot;?https://www.washingtonpost.com/archive/lifestyle/1996/12/08/actionable-figures/717523e7-74ce-47a9-8546-02ae20b8bb1e/&amp;amp;sa=U&amp;amp;ved=2ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQFjAAegQICBAB&amp;amp;usg=AOvVaw3B4ktqJXJJ5uKLPdQYQkQM&quot;                   
+## [2] &quot;?https://www.wnycstudios.org/story/177199-mutant-rights&amp;amp;sa=U&amp;amp;ved=2ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQFjAHegQIBBAB&amp;amp;usg=AOvVaw2lVtBARvjhy5KPB9XL6enr&quot;                                                                                 
+## [3] &quot;?https://www.pinterest.com/pin/111534528251042318/&amp;amp;sa=U&amp;amp;ved=2ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQFjAIegQIBRAB&amp;amp;usg=AOvVaw0M9brH6dMBtquYvz2R3vyB&quot;                                                                                      
+## [4] &quot;?https://www.mastercollector.com/articles/cheesy/cheese121205.htm&amp;amp;sa=U&amp;amp;ved=2ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQFjAKegQIAhAB&amp;amp;usg=AOvVaw1G-RQqiTpWnx5d15gE99gP&quot;                                                                       
+## [5] &quot;?https://www.entrepreneur.com/article/239016&amp;amp;sa=U&amp;amp;ved=2ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQFjALegQIAxAB&amp;amp;usg=AOvVaw16Z-5sPgqfSju5QWGi3crw&quot;                                                                                            
+## [6] &quot;?http://www.codexmarketing.com/about&amp;amp;sa=U&amp;amp;ved=2ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQFjAMegQIARAB&amp;amp;usg=AOvVaw0o3jCYPKJljUVI5ggTYlWO&quot;                                                                                                    
+## [7] &quot;?https://accounts.google.com/ServiceLogin%3Fcontinue%3Dhttps://www.google.com/search%253Fq%253D%252522actionable%252Bfigures%252522%26hl%3Den&amp;amp;sa=U&amp;amp;ved=0ahUKEwjTi8D6wq7jAhUJUK0KHXQ0B3YQxs8CCEY&amp;amp;usg=AOvVaw3KCq5ynvPm1m5DK9VQIq0z&quot;</code></pre>
 <div id="update-using-selenium-or-splash-to-make-this-cleaner" class="section level1">
 <h1>update using selenium or splash to make this cleaner</h1>
 </div>
