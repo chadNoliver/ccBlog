@@ -5,56 +5,27 @@ title: About
 
 
 
-<p>Actionable Figures. Other people have used the name before:</p>
-<pre class="r"><code>library(rvest)</code></pre>
-<pre><code>## Loading required package: xml2</code></pre>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages ------------------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.1.0       v purrr   0.3.2  
-## v tibble  2.1.1       v dplyr   0.8.0.1
-## v tidyr   0.8.3       v stringr 1.4.0  
-## v readr   1.3.1       v forcats 0.4.0</code></pre>
-<pre><code>## -- Conflicts ---------------------- tidyverse_conflicts() --
-## x dplyr::filter()         masks stats::filter()
-## x readr::guess_encoding() masks rvest::guess_encoding()
-## x dplyr::lag()            masks stats::lag()
-## x purrr::pluck()          masks rvest::pluck()</code></pre>
-<pre class="r"><code>library(magrittr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;magrittr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     set_names</code></pre>
-<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract</code></pre>
-<pre class="r"><code>library(RCurl)</code></pre>
-<pre><code>## Loading required package: bitops</code></pre>
-<pre><code>## 
-## Attaching package: &#39;RCurl&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     complete</code></pre>
-<pre class="r"><code>search_term &lt;- &#39;&quot;actionable figures&quot;&#39;
+<p>I’m thinking of using the title ‘actionable figures’</p>
+<p>I googled the results to see how original the title is:</p>
+<pre class="r"><code>#code for returning google search results
+#use selenium or splash in the future for more reproducible scrape
+library(rvest)
+library(tidyverse)
+library(magrittr)
+library(RCurl)
+scrapeDate &lt;- Sys.Date()
+search_term &lt;- &#39;&quot;actionable figures&quot;&#39;
 url &lt;- URLencode(str_c(&quot;https://www.google.com/search?q=&quot;, search_term,sep=&quot;&quot;))
 fullResults &lt;- (read_html(x=url))
-matched &lt;- str_match_all(fullResults, &quot;(.*?)&lt;a href=\&quot;/url(.*?)\&quot;&quot;)
-m2 &lt;- matched[[1]]
-m3 &lt;- as_tibble(m2)
-View(m3)
-View(m3$V1)
-xxx &lt;- &quot;?q=&quot;
-m4 &lt;- m3 %&gt;% 
-  mutate(site=gsub(xxx,&quot;&quot;,V3))</code></pre>
-<p>the following sites have already used the term:</p>
-<pre class="r"><code>print(m4$site)</code></pre>
-<pre><code>## [1] &quot;?https://www.washingtonpost.com/archive/lifestyle/1996/12/08/actionable-figures/717523e7-74ce-47a9-8546-02ae20b8bb1e/&amp;amp;sa=U&amp;amp;ved=2ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQFjAAegQICBAB&amp;amp;usg=AOvVaw2s3xr-bTiwnZfEsrB_wRNC&quot;                   
-## [2] &quot;?https://www.wnycstudios.org/story/177199-mutant-rights&amp;amp;sa=U&amp;amp;ved=2ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQFjAHegQIBxAB&amp;amp;usg=AOvVaw0VnfHKLSUSUY_SVglISMyH&quot;                                                                                 
-## [3] &quot;?https://www.pinterest.com/pin/111534528251042318/&amp;amp;sa=U&amp;amp;ved=2ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQFjAIegQIBhAB&amp;amp;usg=AOvVaw1woZfw-67WdGqENwAyZW5a&quot;                                                                                      
-## [4] &quot;?https://www.mastercollector.com/articles/cheesy/cheese121205.htm&amp;amp;sa=U&amp;amp;ved=2ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQFjAKegQIARAB&amp;amp;usg=AOvVaw1DqDQrfSEX3aiTpCucW3Ef&quot;                                                                       
-## [5] &quot;?https://www.entrepreneur.com/article/239016&amp;amp;sa=U&amp;amp;ved=2ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQFjALegQIAxAB&amp;amp;usg=AOvVaw3ikg9z3aIhoS_ut4yVBvAR&quot;                                                                                            
-## [6] &quot;?http://www.codexmarketing.com/about&amp;amp;sa=U&amp;amp;ved=2ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQFjAMegQIAhAB&amp;amp;usg=AOvVaw2ielAjE17wgv-4D91CUmtw&quot;                                                                                                    
-## [7] &quot;?https://accounts.google.com/ServiceLogin%3Fcontinue%3Dhttps://www.google.com/search%253Fq%253D%252522actionable%252Bfigures%252522%26hl%3Den&amp;amp;sa=U&amp;amp;ved=0ahUKEwi5-uLi1K7jAhUEna0KHfpdC4kQxs8CCEY&amp;amp;usg=AOvVaw3GjTkbONKDcNv6kh2RdLhj&quot;</code></pre>
-<div id="update-using-selenium-or-splash-to-make-this-cleaner" class="section level1">
-<h1>update using selenium or splash to make this cleaner</h1>
-</div>
+messyLinks &lt;- str_match_all(fullResults, &quot;(.*?)&lt;a href=\&quot;/url\\?q=(http|https)://(.*?)\&quot;&quot;)
+cleanLinks &lt;- messyLinks[[1]]</code></pre>
+<p>The google search on 2019-07-12 returned the following sites that have used the title:</p>
+<pre class="r"><code>print(cleanLinks[,4])</code></pre>
+<pre><code>## [1] &quot;www.washingtonpost.com/archive/lifestyle/1996/12/08/actionable-figures/717523e7-74ce-47a9-8546-02ae20b8bb1e/&amp;amp;sa=U&amp;amp;ved=2ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQFjAAegQICRAB&amp;amp;usg=AOvVaw0fRd15rCtyR1geCi3IRLrP&quot;                   
+## [2] &quot;www.wnycstudios.org/story/177199-mutant-rights&amp;amp;sa=U&amp;amp;ved=2ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQFjAHegQICBAB&amp;amp;usg=AOvVaw3z4qQSZoyUCVvk9AZ6yWPk&quot;                                                                                 
+## [3] &quot;www.pinterest.com/pin/111534528251042318/&amp;amp;sa=U&amp;amp;ved=2ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQFjAIegQIAxAB&amp;amp;usg=AOvVaw3vSX82FXU56808hlQe9vKH&quot;                                                                                      
+## [4] &quot;www.entrepreneur.com/article/239016&amp;amp;sa=U&amp;amp;ved=2ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQFjAJegQIBRAB&amp;amp;usg=AOvVaw20jjvvwXsPW0sO7V9UrMHE&quot;                                                                                            
+## [5] &quot;www.codexmarketing.com/about&amp;amp;sa=U&amp;amp;ved=2ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQFjALegQIARAB&amp;amp;usg=AOvVaw2GTAmMd8EEdZh-j_cg5wS1&quot;                                                                                                   
+## [6] &quot;www.flywheeldesign.com/tag/seo-audit/&amp;amp;sa=U&amp;amp;ved=2ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQFjAMegQIAhAB&amp;amp;usg=AOvVaw2pP4ru9K7L8yXjsunFc8NH&quot;                                                                                          
+## [7] &quot;accounts.google.com/ServiceLogin%3Fcontinue%3Dhttps://www.google.com/search%253Fq%253D%252522actionable%252Bfigures%252522%26hl%3Den&amp;amp;sa=U&amp;amp;ved=0ahUKEwii7KCm_67jAhVFDq0KHXzyDOYQxs8CCEc&amp;amp;usg=AOvVaw1w2qRZGhIDhzOxDeoe8UHs&quot;</code></pre>
+<p>I guess I’ll use it for now.</p>

@@ -3,30 +3,27 @@ date: "2019-07-09 21:27:13 CDT"
 title: About
 ---
 
-Actionable Figures. Other people have used the name before:
+I'm thinking of using the title 'actionable figures'
 
-```{r, google_scrape, results='hide', warning=FALSE}
+I googled the results to see how original the title is:
+
+```{r, google_scrape, echo=TRUE, results='hide', warning=FALSE, message=FALSE}
+#code for returning google search results
+#use selenium or splash in the future for more reproducible scrape
 library(rvest)
 library(tidyverse)
 library(magrittr)
 library(RCurl)
-
+scrapeDate <- Sys.Date()
 search_term <- '"actionable figures"'
 url <- URLencode(str_c("https://www.google.com/search?q=", search_term,sep=""))
 fullResults <- (read_html(x=url))
-matched <- str_match_all(fullResults, "(.*?)<a href=\"/url(.*?)\"")
-m2 <- matched[[1]]
-m3 <- as_tibble(m2)
-View(m3)
-View(m3$V1)
-xxx <- "?q="
-m4 <- m3 %>% 
-  mutate(site=gsub(xxx,"",V3))
+messyLinks <- str_match_all(fullResults, "(.*?)<a href=\"/url\\?q=(http|https)://(.*?)\"")
+cleanLinks <- messyLinks[[1]]
 ```
-the following sites have already used the term:
+The google search on `r scrapeDate` returned the following sites that have used the title:
 ```{r}
-print(m4$site)
+print(cleanLinks[,4])
 ```
-#update using selenium or splash to make this cleaner
 
-
+I guess I'll use it for now.
